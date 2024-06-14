@@ -4,8 +4,8 @@ import requests
 import json
 
 from datetime import datetime
-from maotai.jd_logger import logger
-from maotai.config import global_config
+from jdmaotai.jd_logger import logger
+from jdmaotai.config import global_config
 
 
 
@@ -85,7 +85,3 @@ class Timer(object):
                 break
             else:
                 time.sleep(self.sleep_interval)
-
-
-timer  = Timer()
-timer.jd_time()

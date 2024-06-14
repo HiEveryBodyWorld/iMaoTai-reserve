@@ -1,15 +1,14 @@
 import json
 from time import sleep
-from api import jdtime
-from api.mobileApi import JDAPi
+from jdmaotai.mobileApi import JDAPi
 from loguru import logger
 from apscheduler.schedulers.blocking import BlockingScheduler
 import time
-from api.jdtime import local_jd_time_diff
 import datetime
 
-logger.add('./log/main_{time}.log', rotation="00:00", encoding='utf-8')
+from jdmaotai.jdtime import local_jd_time_diff
 
+logger.add('./log/main_{time}.log', rotation="00:00", encoding='utf-8')
 
 def getOrderUrl():
     url, token = jdApi.getToken()
@@ -108,9 +107,9 @@ if __name__ == '__main__':
     jdApi = JDAPi()
     logger.info("程序启动完成")
     scheduler = BlockingScheduler()
-    scheduler.add_job(appoint, 'cron', hour=11, minute=32, second=10)
+    scheduler.add_job(appoint, 'cron', hour=17, minute=59, second=30)
     logger.info("预约任务创建完成")
-    scheduler.add_job(loopSkill, 'cron', hour=11, minute=58, second=30)
+    scheduler.add_job(loopSkill, 'cron', hour=17, minute=59, second=30)
     logger.info("抢购任务创建完成")
     # loopSkill()
 
